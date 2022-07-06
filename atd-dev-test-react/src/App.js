@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import useFetch from './hooks/useFetch'
+import {createContext, useState, useEffect} from 'react'
+import Home from "./components/Home";
+
+export const UserContext = createContext();
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [userInput, setUserInput] = useState({title:'', country:'en'})
+
+    const {loading, data, error, fetchData} = useFetch('http://localhost/atd-dev-test/php/getProducts.php')
+
+    useEffect(() => {
+        fetchData(userInput)
+    },[userInput])
+
+    return (
+        <UserContext.Provider value={[userInput, setUserInput]}>
+            <div className="App">
+                {loading && 'Loading...'}
+                {data && <Home data={data}/>}
+                {error && {error}}
+            </div>
+        </UserContext.Provider>
+
+    );
 }
 
 export default App;
