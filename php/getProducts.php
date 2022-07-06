@@ -5,7 +5,7 @@
 	if(isset($_POST['data']))
 	{
 		$title=$_POST['data'];
-
+		
 		$url='https://global.atdtravel.com/api/products?geo='.$country.'&title='.$title.'';
 	}
 	else {
@@ -22,9 +22,23 @@
 	$result=curl_exec($ch);
 
     curl_close($ch);
-
+	
 	$decode = json_decode($result,true);
 
-	echo json_encode($decode);
+	$output = [];
+	$x = 0;
+	$count = count($decode['data']);
+	
+	
+	while($x < $count){
+	$temp = null;
+	$temp['title'] = $decode['data'][$x]['title'];
+	$temp['destination'] = $decode['data'][$x]['dest'];
+	$temp['image'] = $decode['data'][$x]['img_sml'];
+	array_push($output, $temp);
+	$x++;
+	};
+	
+	echo json_encode($output); 
 
 ?>
