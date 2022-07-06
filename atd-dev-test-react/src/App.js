@@ -2,8 +2,9 @@ import useFetch from './hooks/useFetch'
 import {createContext, useState, useEffect} from 'react'
 import Home from "./components/Home";
 
-export const UserContext = createContext();
 
+export const UserContext = createContext();
+export const DataContext = createContext();
 function App() {
     const [userInput, setUserInput] = useState({title:'', country:'en'})
 
@@ -15,11 +16,13 @@ function App() {
 
     return (
         <UserContext.Provider value={[userInput, setUserInput]}>
+        <DataContext.Provider value={data}>
             <div className="App">
                 {loading && 'Loading...'}
-                {data && <Home data={data}/>}
+                {data && <Home />}
                 {error && {error}}
             </div>
+        </DataContext.Provider>
         </UserContext.Provider>
 
     );

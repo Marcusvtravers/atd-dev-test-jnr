@@ -24,7 +24,6 @@ function UseFetch(url) {
             })
             const json = await response.json()
             setData(json)
-            console.log(json)
             setLoading(false)
         }
         catch(err) {
