@@ -25,20 +25,30 @@
 	
 	$decode = json_decode($result,true);
 
+	$returnedData=[];
 	$output = [];
 	$x = 0;
-	$count = count($decode['data']);
 	
-	
-	while($x < $count){
-	$temp = null;
-	$temp['title'] = $decode['data'][$x]['title'];
-	$temp['destination'] = $decode['data'][$x]['dest'];
-	$temp['image'] = $decode['data'][$x]['img_sml'];
-	array_push($output, $temp);
-	$x++;
-	};
-	
+	//If there are no search results, push a error message
+	if(!isset($decode['data'])){
+		$temp['errorMessage'] = 'There is no data';
+		array_push($output, $temp);
+	} else {
+			$count = count($decode['data']);
+			while($x < $count){
+				$temp = null;
+				$temp['title'] = $decode['data'][$x]['title'];
+				$temp['destination'] = $decode['data'][$x]['dest'];
+				$temp['image'] = $decode['data'][$x]['img_sml'];
+				$temp['id'] = $decode['data'][$x]['id'];
+				array_push($returnedData, $temp);
+				$x++;
+		}
+		$output['data'] = $returnedData;
+		$output['meta']['totalCount'] = $decode['meta']['total_count'];		
+	}
+
+
 	echo json_encode($output); 
 
 ?>

@@ -1,30 +1,16 @@
-import useFetch from './hooks/useFetch'
-import {createContext, useState, useEffect} from 'react'
 import Home from "./components/Home";
 
-
-export const UserContext = createContext();
-export const DataContext = createContext();
 function App() {
-    const [userInput, setUserInput] = useState({title:'', country:'en'})
 
-    const {loading, data, error, fetchData} = useFetch('http://localhost/atd-dev-test/php/getProducts.php')
-
-    useEffect(() => {
-        fetchData(userInput)
-    },[userInput])
+    const AppStyles = {
+        width:'100%',
+        height:'100vh',
+    }
 
     return (
-        <UserContext.Provider value={[userInput, setUserInput]}>
-        <DataContext.Provider value={data}>
-            <div className="App">
-                {loading && 'Loading...'}
-                {data && <Home />}
-                {error && {error}}
+            <div className="App" style={AppStyles}>
+                <Home />
             </div>
-        </DataContext.Provider>
-        </UserContext.Provider>
-
     );
 }
 

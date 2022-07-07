@@ -10,11 +10,10 @@ function UseFetch(url) {
         //Set initial loading state to true
         setLoading(true)
 
-        setData("")
+        setData(false)
         // FormData object appends
         const formData = new FormData();
-        formData.append("data", userInput.title === undefined ? '' : userInput.title);
-        const formData2 = new FormData();
+        formData.append("data", userInput.title === '' ? 'london' : userInput.title);
         formData.append("country", userInput.country === '' ? 'en' : userInput.country);
         console.log(userInput)
         try {
@@ -24,6 +23,7 @@ function UseFetch(url) {
             })
             const json = await response.json()
             setData(json)
+            console.log(json)
             setLoading(false)
         }
         catch(err) {
