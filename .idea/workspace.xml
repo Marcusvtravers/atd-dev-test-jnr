@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2631efc5-ced8-45b9-9a47-3e9f01c085fd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/atd-dev-test-react/src/components/SearchRow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/atd-dev-test-react/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/atd-dev-test-react/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/atd-dev-test-react/src/components/Heading.js" beforeDir="false" afterPath="$PROJECT_DIR$/atd-dev-test-react/src/components/Heading.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/atd-dev-test-react/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/atd-dev-test-react/src/components/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/atd-dev-test-react/src/components/ResultsTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/atd-dev-test-react/src/components/ResultsTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/atd-dev-test-react/src/hooks/useFetch.js" beforeDir="false" afterPath="$PROJECT_DIR$/atd-dev-test-react/src/hooks/useFetch.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/getProducts.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/getProducts.php" afterDir="false" />
-    </list>
+    <list default="true" id="2631efc5-ced8-45b9-9a47-3e9f01c085fd" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,7 +50,7 @@
       <option name="presentableId" value="Default" />
       <updated>1657133962918</updated>
       <workItem from="1657133964426" duration="8347000" />
-      <workItem from="1657218537236" duration="8555000" />
+      <workItem from="1657218537236" duration="8975000" />
     </task>
     <servers />
   </component>
