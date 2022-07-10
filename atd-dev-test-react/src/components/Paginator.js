@@ -1,11 +1,8 @@
 import React from 'react';
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
-import {useContext, useEffect, useReducer, useRef, useState} from 'react';
-import { SvgIcon } from '@mui/material';
+import {useContext, useState} from 'react';
 import {UserContext} from "../App";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';

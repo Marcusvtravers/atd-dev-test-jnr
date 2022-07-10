@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import { useState} from 'react'
 
 //hook to fetch data from the api
 function UseFetch(url) {

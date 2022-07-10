@@ -1,5 +1,5 @@
 import React from 'react';
-import {useEffect, useContext, useState} from 'react'
+import {useEffect, useState} from 'react'
 import {Box, Table, TableBody, TableRow, TableCell, TableHead,Typography } from '@mui/material'
 import StyledTableRow from '../CustomStyles/StyledTableRow'
 
@@ -24,8 +24,8 @@ function ResultsTable({data}) {
                         <TableHead>
                             <TableRow sx={{backgroundColor:'#D3D3D3'}}>
                                 <TableCell><Typography variant="GeneralText" sx={{fontWeight:'bold'}}>Image</Typography></TableCell>
-                                <TableCell><Typography variant="GeneralText"sx={{fontWeight:'bold'}}>Title</Typography></TableCell>
-                                <TableCell><Typography variant="GeneralText"sx={{fontWeight:'bold'}}>Destination</Typography></TableCell>
+                                <TableCell><Typography variant="GeneralText" sx={{fontWeight:'bold'}}>Title</Typography></TableCell>
+                                <TableCell><Typography variant="GeneralText" sx={{fontWeight:'bold'}}>Destination</Typography></TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>

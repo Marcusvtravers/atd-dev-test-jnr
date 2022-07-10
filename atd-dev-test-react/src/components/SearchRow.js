@@ -1,12 +1,12 @@
 import React from 'react';
 import {Box, TextField, Button, Typography} from "@mui/material";
-import {useState, useEffect, useContext} from "react";
+import {useState, useContext} from "react";
 import {UserContext} from "../App";
 
 function SearchRow() {
 
-    const [userTitle, setUserTitle] = useState({title:'', country:'en'})
-    const [userInput, setUserInput] = useContext(UserContext)
+    const [userTitle, setUserTitle] = useState('')
+    const [, setUserInput] = useContext(UserContext)
 
     //Text field sets the title required for a search and runs the useFetch hook
     return (
