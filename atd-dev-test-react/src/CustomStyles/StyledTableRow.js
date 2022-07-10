@@ -3,11 +3,7 @@ import TableRow from '@mui/material/TableRow';
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
     '&:nth-of-type(odd)': {
-        backgroundColor: theme.palette.action.hover,
-    },
-    // hide last border
-    '&:last-child td, &:last-child th': {
-        border: 0,
+        backgroundColor: '#E5E4E2',
     },
 }));
 

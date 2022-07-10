@@ -1,25 +1,25 @@
 import React from 'react';
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import Box from '@mui/material/Box';
+import {Select, MenuItem, Box, Typography} from '@mui/material'
 import {useContext, useState} from "react";
-import {UserContext} from "./Home";
+import {UserContext} from "../App";
 
 function Heading(props) {
 
     const [userInput,setUserInput] =  useContext(UserContext)
+
+    //Setting the user's selected country from User Context
     const [selected, setSelected] = useState(userInput.country)
 
+    //Sets the selected value in the select option and updates the country for the fetch call
      const handleChange = (event) => {
-         console.log(event.target.value);
          setSelected(event.target.value);
          setUserInput(prevState => ({...prevState, country:event.target.value}))
      }
 
     return (
-        <Box sx={{display:'flex', width:'100%',justifyContent:'space-between',alignItems:'center'}}>
+        <Box sx={{display:'flex', width:'100%',justifyContent:'space-between',alignItems:'center', mb:4}}>
             <Box>
-                <h1>Product search</h1>
+                <Typography variant="TitleText">Product search</Typography>
             </Box>
             <Box>
 

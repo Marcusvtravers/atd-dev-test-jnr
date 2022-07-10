@@ -9,21 +9,23 @@ function UseFetch(url) {
     const fetchData = async (userInput) => {
         //Set initial loading state to true
         setLoading(true)
+        setData(null)
 
-        setData(false)
         // FormData object appends
         const formData = new FormData();
-        formData.append("data", userInput.title === '' ? 'london' : userInput.title);
+        formData.append("data", userInput.title === '' ? '' : userInput.title);
         formData.append("country", userInput.country === '' ? 'en' : userInput.country);
-        console.log(userInput)
+        formData.append("limit", JSON.stringify(userInput.limit));
+        formData.append("offset", JSON.stringify(userInput.offset));
         try {
+            //Pass the formData into the body of the fetch method
             const response = await fetch(url, {
                 method: 'POST',
                 body: new URLSearchParams(formData)
             })
+
             const json = await response.json()
             setData(json)
-            console.log(json)
             setLoading(false)
         }
         catch(err) {
@@ -31,6 +33,7 @@ function UseFetch(url) {
             setError(err)
         }
     }
+
     return {loading,data,error,fetchData}
 }
 

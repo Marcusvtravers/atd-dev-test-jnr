@@ -2,18 +2,20 @@
 	header('Access-Control-Allow-Origin: *');
     $executionStartTime = microtime(true) / 1000;
 	$country=$_POST['country'];
+
+	//If data is set, use the full URL
 	if(isset($_POST['data']))
 	{
 		$title=$_POST['data'];
-		
-		$url='https://global.atdtravel.com/api/products?geo='.$country.'&title='.$title.'';
+		$offset=$_POST['offset'];
+		$limit=$_POST['limit'];
+		$url='https://global.atdtravel.com/api/products?geo='.$country.'&title='.$title.'&offset='.$offset.'&limit='.$limit;
 	}
 	else {
 		$url='https://global.atdtravel.com/api/products?geo='.$country;
 	}
 
-
-    //$url='https://global.atdtravel.com/api/products?geo=en&title='.$title.'';
+    //Initialize CURL to connect to the API
     $ch = curl_init();
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -34,6 +36,7 @@
 		$temp['errorMessage'] = 'There is no data';
 		array_push($output, $temp);
 	} else {
+	        //loop through each returned data and push the values needed for the front end
 			$count = count($decode['data']);
 			while($x < $count){
 				$temp = null;
@@ -45,7 +48,8 @@
 				$x++;
 		}
 		$output['data'] = $returnedData;
-		$output['meta']['totalCount'] = $decode['meta']['total_count'];		
+		$output['totalCount'] = $decode['meta']['total_count'];
+			
 	}
 
 

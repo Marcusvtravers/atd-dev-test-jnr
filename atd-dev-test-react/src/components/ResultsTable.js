@@ -1,24 +1,18 @@
 import React from 'react';
 import {useEffect, useContext, useState} from 'react'
-import {DataContext} from './Home'
-import Box from '@mui/material/Box'
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableRow from '@mui/material/TableRow'
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
+import {Box, Table, TableBody, TableRow, TableCell, TableHead,Typography } from '@mui/material'
 import StyledTableRow from '../CustomStyles/StyledTableRow'
+
 
 function ResultsTable({data}) {
 
     const [showTable, setShowTable] = useState(false);
     const [noSearchResult, setNoSearchResult] = useState("")
-    useEffect(() => {
 
+    //If there are no search results, display try again message
+    useEffect(() => {
         if(data !== []){
-            setShowTable(data !== undefined ? true : setNoSearchResult("There are no results for your title. Please try another title"))
-            console.log(data)
+            setShowTable(data !== undefined ? true : setNoSearchResult("There are no results for your search entry. Please try again"))
         }
     },[data])
 
@@ -28,10 +22,10 @@ function ResultsTable({data}) {
                 <Box sx={{width:'100%'}}>
                     <Table>
                         <TableHead>
-                            <TableRow>
-                                <TableCell>Image</TableCell>
-                                <TableCell>Title</TableCell>
-                                <TableCell>Destination</TableCell>
+                            <TableRow sx={{backgroundColor:'#D3D3D3'}}>
+                                <TableCell><Typography variant="GeneralText" sx={{fontWeight:'bold'}}>Image</Typography></TableCell>
+                                <TableCell><Typography variant="GeneralText"sx={{fontWeight:'bold'}}>Title</Typography></TableCell>
+                                <TableCell><Typography variant="GeneralText"sx={{fontWeight:'bold'}}>Destination</Typography></TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -39,8 +33,8 @@ function ResultsTable({data}) {
                                 <StyledTableRow key={i.id}>
                                     <TableCell><img style={{width: '160px', height: '120px'}} src={i.image}
                                                     alt="Destination image"/></TableCell>
-                                    <TableCell>{i.title}</TableCell>
-                                    <TableCell>{i.destination}</TableCell>
+                                    <TableCell><Typography variant="GeneralText">{i.title}</Typography></TableCell>
+                                    <TableCell><Typography variant="GeneralText">{i.destination}</Typography></TableCell>
                                 </StyledTableRow>
                             ))}
                         </TableBody>
